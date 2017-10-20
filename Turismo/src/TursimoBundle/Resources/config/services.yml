@@ -1,0 +1,4 @@
+services:
+#    tursimo.example:
+#        class: TursimoBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
