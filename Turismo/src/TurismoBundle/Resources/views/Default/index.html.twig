@@ -3,68 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Pagina Principal</title>
-    <style media="screen">
-    html, body {
-    margin: 0; padding: 0; background: lightgrey
-    }
-
-    header {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 15%;
-    background: lightgrey;
-    }
-
-    h1 {
-      color: darkorange;
-      float: left;
-      font-size: 40px
-    }
-
-    #buscador{
-      margin-left: 80%;
-    }
-
-    #log{
-      position: absolute;
-      margin-left: 85%;
-    }
-
-    #menu{
-      margin-left: 30%;
-      margin-right: 50%;
-      width: 30%;
-      font-size: 20px;
-      font-style: oblique;
-    }
-
-    #centro {
-      background: dimgrey;
-    }
-
-    #centro img{
-     height:600px;
-      width:100%
-    }
-
-    #contenido {
-      background: dimgrey;
-      overflow: auto;
-      height: 250px;
-    }
-
-    #contenido img{
-      height: 200px;
-      width: 300px;
-      float: left;
-    }
-
-    #datos {
-      background: lightgrey;
-      height: auto;
-    }
-    </style>
+<link rel="stylesheet" href="{{ asset('css/css.css')}}">
   </head>
   <body>
     <header>
@@ -73,49 +12,34 @@
       <script>
 var NS4 = (document.layers);
 var IE4 = (document.all);
-
 var win = window; // Con frames usar top.nombre.window;
 var n = 0;
-
 function findInPage(str) {
-
 var txt, i, found;
-
 if (str == "")
 return false;
-
 // Find next occurance of the given string on the page, wrap around to the
 // start of the page if necessary.
-
 if (NS4) {
-
 // Look for match starting at the current point. If not found, rewind
 // back to the first match.
-
 if (!win.find(str))
 while(win.find(str, false, true))
 n++;
 else
 n++;
-
 // If not found in either direction, give message.
-
 if (n == 0)
 alert("Not found.");
 }
-
 if (IE4) {
 txt = win.document.body.createTextRange();
-
 // Find the nth match from the top of the page.
-
 for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) {
 txt.moveStart("character", 1);
 txt.moveEnd("textedit");
 }
-
 // If found, mark it and scroll it into view.
-
 if (found) {
 txt.moveStart("character", -1);
 txt.findText(str);
@@ -123,25 +47,19 @@ txt.select();
 txt.scrollIntoView();
 n++;
 }
-
 // Otherwise, start over at the top of the page and find first match.
-
 else {
 if (n > 0) {
 n = 0;
 findInPage(str);
 }
-
 // Not found anywhere, give message.
-
 else
 alert("Not found.");
 }
 }
-
 return false;
 }
-
 </script>
 
 <form name="search" onSubmit="return findInPage(this.string.value);">
@@ -171,11 +89,11 @@ onChange="n = 0;"></font> <input type="submit" value="Buscar"></p>
       </table>
     </header>
     <section id="centro">
-      <img src="turismo.jpg" alt="">
+      <img src="{{ asset('turismo.jpg')}}" alt="">
     </section>
     <main id="contenido">
     <br>
-      <img src="mercado.jpg" alt="">
+      <img src="{{ asset('mercado.jpg')}}" alt="">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </main>
     <footer id="datos">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</footer>

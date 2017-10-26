@@ -1,9 +1,9 @@
 <?php
 
-namespace TursimoBundle;
+namespace TurismoBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class TursimoBundle extends Bundle
+class TurismoBundle extends Bundle
 {
 }

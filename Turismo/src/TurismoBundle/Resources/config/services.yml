@@ -1,4 +1,4 @@
 services:
-#    tursimo.example:
-#        class: TursimoBundle\Example
+#    turismo.example:
+#        class: TurismoBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]

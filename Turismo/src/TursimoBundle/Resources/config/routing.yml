@@ -1,3 +1,0 @@
-tursimo_homepage:
-    path:     /
-    defaults: { _controller: TursimoBundle:Default:index }
